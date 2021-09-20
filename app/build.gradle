@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+}
+
+repositories {
+    // Use Maven Central for resolving dependencies.
+    mavenCentral()
+}
+
+dependencies {
+    implementation platform('com.amazonaws:aws-java-sdk-bom:1.12.67')
+    implementation 'com.amazonaws:aws-java-sdk-s3'
+
+    implementation 'com.amazonaws:aws-lambda-java-core:1.2.1'
+    implementation 'com.amazonaws:aws-lambda-java-events:3.10.0'
+
+    // Use JUnit test framework.
+    testImplementation 'junit:junit:4.13.2'
+}
+
+shadowJar {
+    zip64 true
+}
+
